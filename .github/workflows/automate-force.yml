@@ -11,7 +11,7 @@ on:
 jobs:
   update-configs:
     runs-on: ubuntu-latest
-    
+     
     # Grant necessary permissions
     permissions:
       contents: write
