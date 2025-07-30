@@ -49,8 +49,9 @@ jobs:
           # Create a new orphan branch
           git checkout --orphan temp-branch
           
-          # Add all files
+          # Add all files except workflow files to avoid self-modification
           git add -A
+          git reset -- .github/workflows/
           
           # Commit with timestamp
           git commit -m "Auto-update: $(date '+%Y-%m-%d %H:%M UTC') - Fresh proxy configurations"
@@ -62,4 +63,6 @@ jobs:
       - name: Force Push Changes
         run: |
           # Force push to completely replace history
-          git push -f origin main 
+          git push -f origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
