@@ -17,7 +17,7 @@ jobs:
       contents: write
       actions: read
     
-    steps: 
+    steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
@@ -44,13 +44,22 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
       
+      - name: Backup Workflow Files
+        run: |
+          mkdir -p /tmp/workflow-backup
+          cp -r .github/workflows/ /tmp/workflow-backup/
+      
       - name: Create Fresh Branch
         run: |
           # Create a new orphan branch
           git checkout --orphan temp-branch
           
-          # Add all files
+          # Remove all files first
+          git rm -rf .
+          
+          # Add all files except workflow files
           git add -A
+          git reset -- .github/
           
           # Commit with timestamp
           git commit -m "Auto-update: $(date '+%Y-%m-%d %H:%M UTC') - Fresh proxy configurations"
@@ -63,5 +72,15 @@ jobs:
         run: |
           # Force push to completely replace history
           git push -f origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+      
+      - name: Restore Workflow Files
+        run: |
+          # Restore workflow files to the new branch
+          cp -r /tmp/workflow-backup/workflows/ .github/
+          git add .github/workflows/
+          git commit -m "Restore workflow files"
+          git push origin main
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }} 
