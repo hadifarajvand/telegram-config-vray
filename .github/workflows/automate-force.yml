@@ -1,4 +1,4 @@
-name: Automated Proxy Configuration Update (Force Reset)
+name: Automated Proxy Configuration Update
 
 on:
   # Trigger on schedule (every 2 hours)
@@ -44,43 +44,17 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
       
-      - name: Backup Workflow Files
+      - name: Add and Commit Changes
         run: |
-          mkdir -p /tmp/workflow-backup
-          cp -r .github/workflows/ /tmp/workflow-backup/
-      
-      - name: Create Fresh Branch
-        run: |
-          # Create a new orphan branch
-          git checkout --orphan temp-branch
-          
-          # Remove all files first
-          git rm -rf .
-          
-          # Add all files except workflow files
+          # Add all changes
           git add -A
-          git reset -- .github/
           
           # Commit with timestamp
           git commit -m "Auto-update: $(date '+%Y-%m-%d %H:%M UTC') - Fresh proxy configurations"
-          
-          # Delete old main and rename current branch
-          git branch -D main
-          git branch -m main
       
-      - name: Force Push Changes
+      - name: Push Changes
         run: |
-          # Force push to completely replace history
-          git push -f origin main
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
-      
-      - name: Restore Workflow Files
-        run: |
-          # Restore workflow files to the new branch
-          cp -r /tmp/workflow-backup/workflows/ .github/
-          git add .github/workflows/
-          git commit -m "Restore workflow files"
+          # Regular push (no force)
           git push origin main
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }} 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
