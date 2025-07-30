@@ -1,4 +1,4 @@
-name: Automated Proxy Configuration Update (Force Reset)
+name: Automated Proxy Configuration Update
 
 on:
   # Trigger on schedule (every 2 hours)
@@ -44,25 +44,33 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
       
-      - name: Create Fresh Branch
+      - name: Create Data Branch
         run: |
-          # Create a new orphan branch
-          git checkout --orphan temp-branch
+          # Create a new branch for data updates
+          git checkout -b data-update-$(date +%s)
           
-          # Add all files except workflow files to avoid self-modification
+          # Add all changes
           git add -A
-          git reset -- .github/workflows/
           
-          # Commit with timestamp
+          # Commit changes
           git commit -m "Auto-update: $(date '+%Y-%m-%d %H:%M UTC') - Fresh proxy configurations"
           
-          # Delete old main and rename current branch
-          git branch -D main
-          git branch -m main
-      
-      - name: Force Push Changes
-        run: |
-          # Force push to completely replace history
-          git push -f origin main
+          # Push the data branch
+          git push origin HEAD
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: "Auto-update: $(date '+%Y-%m-%d %H:%M UTC') - Fresh proxy configurations"
+          body: |
+            Automated update of proxy configurations.
+            
+            This PR contains fresh proxy configurations generated at $(date '+%Y-%m-%d %H:%M UTC').
+            
+            - [ ] Merge this PR to update the main branch
+          branch: data-update-$(date +%s)
+          base: main
+          delete-branch: true 
