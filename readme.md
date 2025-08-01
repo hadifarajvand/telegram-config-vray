@@ -156,4 +156,4 @@ Subscription links for configurations are organized according to country and pro
 ## Stats
 [![Stars](https://starchart.cc/hadifarajvand/telegram-config-vray.svg?variant=adaptive)](https://starchart.cc/hadifarajvand/telegram-config-vray)
 ## Activity
-![Alt](https://repobeats.axiom.co/api/embed/6e88aa7d66986824532760b5b14120a22c8ca813.svg "Repobeats analytics image")
+![Alt](https://repobeats.axiom.co/api/embed/6e88aa7d66986824532760b5b14120a22c8ca813.svg "Repobeats analytics image")  
