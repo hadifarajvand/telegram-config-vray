@@ -1,0 +1,24 @@
+name: Test PAT Token
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-pat:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      
+      - name: Test PAT Permissions
+        run: |
+          echo "Testing PAT token permissions..."
+          
+          # Test if we can read repository info
+          curl -H "Authorization: token ${{ secrets.PAT_TOKEN }}" \
+               https://api.github.com/repos/hadifarajvand/telegram-config-vray
+          
+          echo "PAT token test completed successfully!"
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }} 

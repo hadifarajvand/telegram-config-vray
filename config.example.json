@@ -1,0 +1,28 @@
+{
+    "github": {
+        "username": "hadifarajvand",
+        "repository": "telegram-config-vray",
+        "email": "hadifarajvand@gmail.com",
+        "name": "Hadi Farajvand"
+    },
+    "telegram_channels": [
+        "example_channel1",
+        "example_channel2",
+        "example_channel3"
+    ],
+    "subscription_sources": [
+        "https://raw.githubusercontent.com/example/source1/main/config.txt",
+        "https://raw.githubusercontent.com/example/source2/main/proxies.txt"
+    ],
+    "schedule": {
+        "enabled": true,
+        "cron": "15 * * * *",
+        "timezone": "Asia/Tehran"
+    },
+    "output": {
+        "protocols": ["vmess", "vless", "trojan", "shadowsocks", "reality", "tuic", "hysteria", "juicity"],
+        "networks": ["tcp", "ws", "http", "grpc"],
+        "security": ["tls", "non-tls"],
+        "layers": ["ipv4", "ipv6"]
+    }
+} 
