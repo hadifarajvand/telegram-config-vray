@@ -1,0 +1,12 @@
+.DS_Store
+.env
+.venv/
+.venvmac/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+logs/
+*.log
+*.save
+geoip-lite/*.tmp
+geoip-lite/.*.tmp
