@@ -1,0 +1,20 @@
+{
+  "generated_at": "workflow-time",
+  "files": [
+    {
+      "name": "non-tls",
+      "lines": 416,
+      "errors": 0,
+      "output_text": "non-tls.decoded.txt",
+      "output_json": "non-tls.decoded.json"
+    },
+    {
+      "name": "tls",
+      "lines": 1008,
+      "errors": 0,
+      "output_text": "tls.decoded.txt",
+      "output_json": "tls.decoded.json"
+    }
+  ],
+  "errors": []
+}
