@@ -27,12 +27,12 @@ jobs:
           python-version: "3.11"
 
       - name: Validate and publish static output
-        run: python scripts/validate_and_publish.py
+        run: python security/scripts/validate_and_publish.py
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: security/dist
 
   deploy:
     needs: validate
