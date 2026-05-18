@@ -1,65 +1,49 @@
-## Introduction
-The script systematically collects Vmess, Vless, ShadowSocks, Trojan, Reality, Hysteria, Tuic, and Juicity configurations from publicly accessible Telegram channels. It categorizes these configurations based on open and closed ports, eliminates duplicate entries, resolves configuration addresses using IP addresses, and revises configuration titles to reflect server and protocol-type properties. These properties include network and security type, IP address and port, and the respective country associated with the configuration.
+# telegram-config-vray outputs
 
-| **Code** | **Country Name** | **Subscription Link** | **Code** | **Country Name** | **Subscription Link** |
-|:---:|:---:|:---:|:---:|:---:|:---:|
-| AL | Albania | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/al/mixed) | DZ | Algeria | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/dz/mixed) |
-| AR | Argentina | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/ar/mixed) | AM | Armenia | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/am/mixed) |
-| AU | Australia | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/au/mixed) | AT | Austria | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/at/mixed) |
-| AZ | Azerbaijan | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/az/mixed) | BH | Bahrain | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/bh/mixed) |
-| BD | Bangladesh | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/bd/mixed) | BY | Belarus | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/by/mixed) |
-| BE | Belgium | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/be/mixed) | BZ | Belize | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/bz/mixed) |
-| BO | Bolivia, Plurinational State of | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/bo/mixed) | BA | Bosnia and Herzegovina | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/ba/mixed) |
-| BR | Brazil | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/br/mixed) | BG | Bulgaria | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/bg/mixed) |
-| KH | Cambodia | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/kh/mixed) | CM | Cameroon | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/cm/mixed) |
-| CA | Canada | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/ca/mixed) | CL | Chile | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/cl/mixed) |
-| CN | China | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/cn/mixed) | CO | Colombia | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/co/mixed) |
-| CR | Costa Rica | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/cr/mixed) | HR | Croatia | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/hr/mixed) |
-| CY | Cyprus | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/cy/mixed) | CZ | Czechia | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/cz/mixed) |
-| DK | Denmark | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/dk/mixed) | EC | Ecuador | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/ec/mixed) |
-| EG | Egypt | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/eg/mixed) | EE | Estonia | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/ee/mixed) |
-| FI | Finland | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/fi/mixed) | FR | France | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/fr/mixed) |
-| GE | Georgia | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/ge/mixed) | DE | Germany | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/de/mixed) |
-| GI | Gibraltar | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/gi/mixed) | GR | Greece | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/gr/mixed) |
-| GT | Guatemala | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/gt/mixed) | HK | Hong Kong | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/hk/mixed) |
-| HU | Hungary | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/hu/mixed) | IS | Iceland | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/is/mixed) |
-| IN | India | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/in/mixed) | ID | Indonesia | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/id/mixed) |
-| IR | Iran, Islamic Republic of | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/ir/mixed) | IQ | Iraq | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/iq/mixed) |
-| IE | Ireland | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/ie/mixed) | IM | Isle of Man | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/im/mixed) |
-| IL | Israel | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/il/mixed) | IT | Italy | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/it/mixed) |
-| JP | Japan | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/jp/mixed) | JO | Jordan | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/jo/mixed) |
-| KZ | Kazakhstan | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/kz/mixed) | KE | Kenya | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/ke/mixed) |
-| KR | Korea, Republic of | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/kr/mixed) | XK | Kosovo | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/xk/mixed) |
-| KW | Kuwait | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/kw/mixed) | KG | Kyrgyzstan | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/kg/mixed) |
-| LV | Latvia | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/lv/mixed) | LY | Libya | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/ly/mixed) |
-| LI | Liechtenstein | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/li/mixed) | LT | Lithuania | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/lt/mixed) |
-| LU | Luxembourg | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/lu/mixed) | MY | Malaysia | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/my/mixed) |
-| MV | Maldives | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/mv/mixed) | MT | Malta | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/mt/mixed) |
-| MH | Marshall Islands | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/mh/mixed) | MU | Mauritius | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/mu/mixed) |
-| MX | Mexico | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/mx/mixed) | MD | Moldova, Republic of | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/md/mixed) |
-| ME | Montenegro | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/me/mixed) | MA | Morocco | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/ma/mixed) |
-| NP | Nepal | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/np/mixed) | NL | Netherlands | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/nl/mixed) |
-| NZ | New Zealand | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/nz/mixed) | NG | Nigeria | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/ng/mixed) |
-| MK | North Macedonia | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/mk/mixed) | NO | Norway | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/no/mixed) |
-| NA | Not Available | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/na/mixed) | OM | Oman | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/om/mixed) |
-| PK | Pakistan | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/pk/mixed) | PS | Palestine, State of | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/ps/mixed) |
-| PA | Panama | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/pa/mixed) | PY | Paraguay | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/py/mixed) |
-| PE | Peru | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/pe/mixed) | PH | Philippines | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/ph/mixed) |
-| PL | Poland | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/pl/mixed) | PT | Portugal | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/pt/mixed) |
-| PR | Puerto Rico | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/pr/mixed) | QA | Qatar | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/qa/mixed) |
-| RO | Romania | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/ro/mixed) | RU | Russian Federation | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/ru/mixed) |
-| SA | Saudi Arabia | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/sa/mixed) | RS | Serbia | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/rs/mixed) |
-| SC | Seychelles | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/sc/mixed) | SG | Singapore | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/sg/mixed) |
-| SK | Slovakia | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/sk/mixed) | SI | Slovenia | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/si/mixed) |
-| ZA | South Africa | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/za/mixed) | ES | Spain | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/es/mixed) |
-| SE | Sweden | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/se/mixed) | CH | Switzerland | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/ch/mixed) |
-| TW | Taiwan, Province of China | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/tw/mixed) | TH | Thailand | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/th/mixed) |
-| TG | Togo | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/tg/mixed) | TR | Türkiye | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/tr/mixed) |
-| UA | Ukraine | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/ua/mixed) | AE | United Arab Emirates | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/ae/mixed) |
-| GB | United Kingdom | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/gb/mixed) | US | United States | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/us/mixed) |
-| .DS_STORE | Unknown | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/.DS_Store/mixed) | UZ | Uzbekistan | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/uz/mixed) |
-| VN | Viet Nam | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/vn/mixed) | VG | Virgin Islands, British | [Subscription Link](https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/vg/mixed) |
-## Stats
-[![Stars](https://starchart.cc/hadifarajvand/telegram-config-vray.svg?variant=adaptive)](https://starchart.cc/hadifarajvand/telegram-config-vray)
-## Activity
-![Alt](https://repobeats.axiom.co/api/embed/6e88aa7d66986824532760b5b14120a22c8ca813.svg "Repobeats analytics image")
+This repository is the public artifact bucket for generated subscription files.
+The private backend repository produces these files on GitHub Actions and syncs
+them here.
+
+## Exact file links
+
+Primary feeds:
+
+- `layers/ipv4`: https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/layers/ipv4
+- `layers/ipv6`: https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/layers/ipv6
+- `layers/clash.yaml`: https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/layers/clash.yaml
+- `layers/ipv4-clash-verge.yaml`: https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/layers/ipv4-clash-verge.yaml
+- `layers/ipv6-clash-verge.yaml`: https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/layers/ipv6-clash-verge.yaml
+
+Grouped feeds:
+
+- `channels/layers/ipv4`: https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/channels/layers/ipv4
+- `channels/layers/ipv4-clash-verge.yaml`: https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/channels/layers/ipv4-clash-verge.yaml
+- `channels/layers/ipv6`: https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/channels/layers/ipv6
+- `channels/layers/ipv6-clash-verge.yaml`: https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/channels/layers/ipv6-clash-verge.yaml
+- `channels/security/tls`: https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/channels/security/tls
+- `channels/security/non-tls`: https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/channels/security/non-tls
+
+Subscription feeds:
+
+- `subscribe/layers/ipv4`: https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/subscribe/layers/ipv4
+- `subscribe/layers/ipv4-clash-verge.yaml`: https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/subscribe/layers/ipv4-clash-verge.yaml
+- `subscribe/layers/ipv6`: https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/subscribe/layers/ipv6
+- `subscribe/layers/ipv6-clash-verge.yaml`: https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/subscribe/layers/ipv6-clash-verge.yaml
+- `subscribe/security/tls`: https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/subscribe/security/tls
+- `subscribe/security/non-tls`: https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/subscribe/security/non-tls
+
+Public Pages assets:
+
+- `security/dist/index.html`: https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/security/dist/index.html
+- Pages site: https://hadifarajvand.github.io/telegram-config-vray/
+
+Country examples:
+
+- `countries/us/mixed`: https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/us/mixed
+- `countries/nl/mixed`: https://raw.githubusercontent.com/hadifarajvand/telegram-config-vray/main/countries/nl/mixed
+
+## Automation
+
+- Backend generator: `hadifarajvand/telegram-config-vray-backend` private repo
+- Public output repo: this repo
+- Backend GitHub Actions syncs explicit generated paths only, plus the public Pages files listed in `config/public_keep_paths.txt`
